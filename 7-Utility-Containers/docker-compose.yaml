@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  utility-container-entry:
+    build: ./
+    stdin_open: true #i flag
+    tty: true #t flag
+    volumes:
+      - ./:/app
