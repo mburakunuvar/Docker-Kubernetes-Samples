@@ -18,6 +18,14 @@ for containerized web server to local mongo db : :
 
 It's translated to the IP address off your host machine as seen from inside the Docker container.
 
+### localhost(nodeapp) to container
+
+in upcoming chapter
+
+```bash
+$ docker run --name mongodb --rm -d -p 27017:27017 mongo
+```
+
 ### container to container (cross)
 
 ```bash
