@@ -28,7 +28,7 @@ $ docker run -it <IMAGE_NAME> npm init
 $ docker build -t utility-container .
 $ docker run -it utility-container npm init
 ## mirror to local
-$ docker run -it -v $(pwd):/app utility-container npm init
+$ docker run -it -v $(pwd):/home/node/app utility-container npm init
 >package name:
 > ....
 ```
@@ -45,21 +45,24 @@ ENTRYPOINT whatever written will be appended at the end
 ```bash
 $ docker build -t utility-container-entry .
 ## mirror to local
-$ docker run -it -v $(pwd):/app utility-container-entry init
+$ docker run -it -v $(pwd):/home/node/app utility-container-entry init
 >package name:
 > ....
 ## other command to local
-$ docker run -it -v $(pwd):/app utility-container-entry install
-$ docker run -it -v $(pwd):/app utility-container-entry install express --save
+$ docker run -it -v $(pwd):/home/node/app utility-container-entry install
+$ docker run -it -v $(pwd):/home/node/app utility-container-entry install express --save
 ```
 
 ### Docker-Compose
 
 ```bash
+$ docker-compose up
+## will not work because ENTRY includes just npm with no follow up.
 $ docker-compose up init
-## will not work because of ENTRY
+## fails because docker-compose is for services running
+## for utility containers
 $ docker-compose exec <CONTAINER_NAME >...
-# is an option
+# or another option, targeting a specific service within docker-compose
 $ docker-compose run utility-container-entry init
 # will work better
 
@@ -68,3 +71,6 @@ $ docker-compose down
 $ docker-compose run -rm utility-container-entry init
 # -rm will be necessary
 ```
+
+[Utility Containers and Linux]
+(https://www.udemy.com/course/docker-kubernetes-the-practical-guide/learn/lecture/22167138#questions/12977214/)

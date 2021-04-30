@@ -85,6 +85,9 @@ mongoose.connect(
   (err) => {
     if (err) {
       console.error("FAILED TO CONNECT TO MONGODB");
+      console.log(
+        `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_URL}:27017/course-goals?authSource=admin`
+      );
       console.error(err);
     } else {
       console.log("CONNECTED TO MONGODB!!");

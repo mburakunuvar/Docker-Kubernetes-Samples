@@ -28,15 +28,21 @@ Think of it like one remote machine which runs one or more containers
 - Launch Type
 - Memory , CPUD
 
+"A task definition is a blueprint for your application, and describes one or more containers through attributes. Some attributes are configured at the task level but the majority of attributes are configured per container."
+
 #### ECS Service :
 
 how to execute task
 
 - Load Balancer
 
+"A service allows you to run and maintain a specified number (the "desired count") of simultaneous instances of a task definition in an ECS cluster."
+
 #### ECS Cluster
 
 overall network, in order to group multiple containers in one cluster
+
+"The infrastructure in a Fargate cluster is fully managed by AWS. Your containers run without you managing and configuring individual Amazon EC2 instances."
 
 # re-run updated image
 

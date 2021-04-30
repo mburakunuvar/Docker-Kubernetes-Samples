@@ -23,7 +23,10 @@ $ docker push burakunuvar/node-deployment-sample-image
 $ docker run -d --rm --name node-deployment-sample-container -p 80:80 burakunuvar/node-deployment-sample-image
 
 # re-run updated image
+$ docker build -t node-deployment-sample-image .
+$ docker tag node-deployment-sample-image burakunuvar/node-deployment-sample-image
+$ docker push burakunuvar/node-deployment-sample-image
 $ docker pull burakunuvar/node-deployment-sample-image
-docker run -d --rm -p 80:80 burakunuvar/node-deployment-sample-image
+$ docker run -d --rm -p 80:80 burakunuvar/node-deployment-sample-image
 
 ```

@@ -5,4 +5,4 @@ services:
     stdin_open: true #i flag
     tty: true #t flag
     volumes:
-      - ./:/app
+      - ./:/home/node/app

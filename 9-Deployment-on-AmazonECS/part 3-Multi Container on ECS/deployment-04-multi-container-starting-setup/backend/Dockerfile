@@ -1,17 +1,12 @@
-FROM node
-
-WORKDIR /app
-
-COPY package.json .
-
+FROM node:alpine
+USER node
+RUN mkdir -p /home/node/app
+WORKDIR /home/node/app
+COPY --chown=node:node ./package.json ./
 RUN npm install
-
-COPY . .
-
+COPY --chown=node:node ./ ./
 EXPOSE 80
-
-ENV MONGODB_USERNAME=root
-ENV MONGODB_PASSWORD=secret
-ENV MONGODB_URL=mongodb
-
+ENV MONGODB_USERNAME=default-username
+ENV MONGODB_PASSWORD=default-password
+ENV MONGODB_URL=default-url
 CMD ["npm", "start"]

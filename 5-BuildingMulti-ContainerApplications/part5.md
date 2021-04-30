@@ -154,11 +154,11 @@ Check https://hub.docker.com/_/mongo for the location of :data/db in mongo image
 
 ```bash
 $ docker run --name mongodb \
--v data:data/db \
+-v data:/data/db \
 --rm -d \
 --network web-app-network \
 -e MONGO_INITDB_ROOT_USERNAME=burak \
--e MONGO_INITDB_ROOT_PASSWORD=unuvar
+-e MONGO_INITDB_ROOT_PASSWORD=unuvar \
 mongo
 ```
 
@@ -240,7 +240,7 @@ $ docker run --name goals-frontend \
 react-app-image
 ```
 
-- as we're only binding source folder, no need to exculde ignore node_modules by anonymous volumes. They're not included in mapping thus by default container will use its own node_modules
+- In this code as we're only binding source folder, no need to exculde ignore node_modules by anonymous volumes. They're not included in mapping thus by default container will use its own node_modules
 - no need for nodemon as react development environment already responds to updates (watch the files and reload by default)
 
 - use dockerignore

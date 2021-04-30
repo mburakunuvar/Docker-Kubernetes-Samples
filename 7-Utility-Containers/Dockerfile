@@ -1,7 +1,8 @@
 FROM node:14-alpine
-WORKDIR /app
-
-#remove initial command
-# CMD npm init
+USER node
+WORKDIR /home/node/app
 
 ENTRYPOINT [ "npm" ]
+
+# For utility containers, remove initial command
+# CMD npm init
